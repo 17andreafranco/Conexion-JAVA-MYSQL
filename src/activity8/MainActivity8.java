@@ -1,7 +1,6 @@
 package activity8;
 
 import java.sql.SQLException;
-
 import activity6.QuerySQL;
 
 public class MainActivity8 {
@@ -12,12 +11,14 @@ public class MainActivity8 {
 
 		// Create tables
 
+		//Facultad table
 		query.query("create table facultad("
 				+ "	id int not null,"
 				+ "nombre nvarchar(100),"
 				+ "primary key(id)"
 				+ ")");
 
+		//Investigadores table
 		query.query("create table investigadores("
 				+ "dni varchar(8),"
 				+ "nombre nvarchar(255),"
@@ -28,6 +29,7 @@ public class MainActivity8 {
 				+ "references facultad(id)"
 				+ ")");
 
+		//Equipos table
 		query.query("create table equipos("
 				+ "numserie char(4),"
 				+ "nombre nvarchar(100),"
@@ -38,6 +40,7 @@ public class MainActivity8 {
 				+ "references facultad(id)"
 				+ ")");
 
+		//Reserva table
 		query.query("create table reserva("
 				+ "	dni varchar(8),"
 				+ "numserie char(4),"
@@ -53,6 +56,8 @@ public class MainActivity8 {
 				+ ")");
 
 		// Insert values
+		
+		//Facultad values
 		query.query("INSERT INTO facultad VALUE "
 				+ "	(1,'Facultad1'),"
 				+ "    (2,'Facultad2'),"
@@ -65,6 +70,7 @@ public class MainActivity8 {
 				+ "    (9,'Facultad9'),"
 				+ "    (10,'Facultad10')");
 
+		//Investigadores values
 		query.query("INSERT INTO investigadores VALUE "
 				+ "('0000001A','Andrea',1),"
 				+ "('0000002B','Oriol',1),"
@@ -77,6 +83,7 @@ public class MainActivity8 {
 				+ "('0000009I','Nat',3),"
 				+ "('0000010J','Luis',4)");
 		
+		//Equipos values
 		query.query("INSERT INTO equipos VALUE "
 				+ "('000A','Equipo1',1),"
 				+ "('000B','Equipo2',1),"
@@ -88,7 +95,8 @@ public class MainActivity8 {
 				+ "('000H','Equipo8',5),"
 				+ "('000I','Equipo9',5),"
 				+ "('000J','Equipo10',7)");
-
+		
+		//Reserva values
 		query.query("INSERT INTO reserva VALUE" + "	('0000001A','000A','2022-06-17 15:30:40','2022-07-14 15:30:40'),"
 				+ "('0000001A','000C','2022-06-17 15:30:40','2022-07-14 15:30:40'),"
 				+ "('0000003C','000B','2022-06-17 15:30:40','2022-07-14 15:30:40'),"

@@ -23,6 +23,7 @@ public class QuerySQL {
 
 	}
 
+	// Conexion con la base de datos
 	public Connection Connection() {
 		try {
 			this.conn = DriverManager.getConnection(this.url, this.login, this.password);
@@ -33,14 +34,18 @@ public class QuerySQL {
 		return conn;
 	}
 
+	/*
+	 * Peticion a la base de datos 
+	 * Se pasa por parametro un String query, sera una peticion SQL
+	 */
 	public void query(String query) throws SQLException {
 
 		try {
-			
+
 			Statement st = conn.createStatement();
 			st.executeUpdate(query);
 			System.out.println("-Query - Ok");
-			
+
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
 		}
